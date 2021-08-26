@@ -3,9 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Rock-Paper-Scisors</title>
-    <script src="rock-paper-scissors.js"></script>
+    <script defer src="rock-paper-scissors.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header class="centerd">
+        <h1>Rock-Paper-Scisors</h1>
+    </header>
+    <div class="result-container">
+        <div class="name-container">
+            <img id="human-img"
+             src="images/pointing-man-character-by_vexels.svg" alt="human">
+        </div>
+        <div class="selected-item-human">
+            
+        </div>
+        <div class="score-container human">
+            <div class="point" id="point5Human"></div>
+            <div class="point" id="point4Human"></div>
+            <div class="point" id="point3Human"></div>
+            <div class="point" id="point2Human"></div>
+            <div class="point" id="point1Human"></div>
+        </div>    
+        <div class="semicolon-container">
+
+        </div>
+        <div class="score-container ai">
+            <div class="point" id="point5Computer"></div>
+            <div class="point" id="point4Computer"></div>
+            <div class="point" id="point3Computer"></div>
+            <div class="point" id="point2Computer"></div>
+            <div class="point" id="point1Computer"></div>
+        </div>
+        <div class="selected-item-computer">
+            
+        </div>
+        <div class="name-container">
+            <img src="images/robot.png" alt="robot">
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="selectionButton" id="rock">rock</button>
+        <button class="selectionButton" id="paper">paper</button>
+        <button class="selectionButton" id="scissors">scissors</button>
+        <button id="new-game">New Game</button>
+    </div>
 </body>
 </html>
