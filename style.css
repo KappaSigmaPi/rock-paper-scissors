@@ -2,6 +2,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+body {
+    overflow: hidden;
+}
 header {
     background-color: thistle;
     height: 100px;
@@ -22,7 +25,6 @@ h1 {
 .name-container {
     height: 200px;
     flex-grow: 3;
-    border: black solid 1px;
 }
 .name-container img {
     width: 130px;
@@ -36,34 +38,40 @@ h1 {
 .selected-item-human {
     height: 200px;
     flex-grow: 3;
-    border: black solid 1px;
-    min-width: 150px;
+    max-width: 150px;
 }
 .selected-item-computer {
     height: 200px;
     flex-grow: 3;
-    border: black solid 1px;
-    min-width: 150px;
+    max-width: 150px;
 }
 .score-container {
     height: 200px;
     flex-grow: 3;
-    border: black solid 1px;
     display: flex;
     flex-direction: column;
 }
-.semicolon-container {
-    height: 200px;
-    flex-grow: 1;
-    border: black solid 1px;
-}
 .button-container {
     background-color: wheat;
-    height: 100px;
+    height: 230px;
+    display: flex; 
+}
+.selectionButton {
+    flex-grow: 1;
+    font-size: 25px;
+}
+.new-game {
+    flex-grow: 1;
+    font-size: 25px;
 }
 .point {
     height: 30px;
     width: 100px;
     border: black solid 1px;
     margin: auto;
+    background-color: white;
+}
+footer {
+    min-height: 250px;
+    background-color: teal;
 }

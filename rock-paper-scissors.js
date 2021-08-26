@@ -1,5 +1,3 @@
-setPointsWhite();
-
 let game = {
     humanScore : 0,
     computerScore : 0,
@@ -35,7 +33,6 @@ let game = {
     }
 }
 
-
 function roundDrawn() {
     console.log("draw");
 } 
@@ -46,7 +43,7 @@ function roundLost() {
     game.computerScore++;
     if(points == 4) {
         point5Computer.style.backgroundColor = 'black';
-        alert("You Lost the Game!");
+        alert("You Lost the Game\nClick \"New Game\"to continue");
     }
     if(points == 3) {
         point4Computer.style.backgroundColor = 'black';
@@ -67,7 +64,7 @@ function roundWon() {
     game.humanScore++;
     if(points == 4) {
         point5Human.style.backgroundColor = 'black';
-        alert("You Won the Game");
+        alert("You Won the Game\nClick \"New Game\"to continue");
     }
     if(points == 3) {
         point4Human.style.backgroundColor = 'black';
@@ -89,6 +86,57 @@ function setPointsWhite() {
         point.style.backgroundColor = 'white';
     });
 }
+
+function computerPlay() {
+    let value = Math.floor(Math.random() * 3);
+
+    if (value == 0) {
+        computerChoiceImage.innerHTML = '';
+        computerChoiceImage.appendChild(rockImageBot);
+        return "rock";
+    } else 
+    if (value == 1) {
+        computerChoiceImage.innerHTML = '';
+        computerChoiceImage.appendChild(scissorsImageBot);
+        return "scissors";
+    } else {
+        computerChoiceImage.innerHTML = '';
+        computerChoiceImage.appendChild(paperImageBot);
+        return "paper";
+    }
+}
+
+// getting reference from html elements
+
+const paperImage = new Image();
+paperImage.src = 'images/paper.png';
+const rockImage = new Image();
+rockImage.src = 'images/rock.png';
+const scissorsImage = new Image();
+scissorsImage.src = 'images/scissors.png';
+
+// Adding same image again aparently dosn't work,
+// so i'm adding same img but with different variable
+
+const paperImageBot = new Image();
+paperImageBot.src = 'images/paper.png';
+const rockImageBot = new Image();
+rockImageBot.src = 'images/rock.png';
+const scissorsImageBot = new Image();
+scissorsImageBot.src = 'images/scissors.png';
+
+const humanChoiceImage = document.querySelector('.selected-item-human');
+const computerChoiceImage = document.querySelector('.selected-item-computer');
+
+const newGameButton = document.querySelector('#new-game');
+newGameButton.addEventListener('click', () => {
+    game.humanScore = 0;
+    game.computerScore =0;
+    setPointsWhite();
+    humanChoiceImage.innerHTML = '';
+    computerChoiceImage.innerHTML = '';
+});
+
 const point1Human = document.querySelector('#point1Human');
 const point2Human = document.querySelector('#point2Human');
 const point3Human = document.querySelector('#point3Human');
@@ -120,51 +168,3 @@ const selectionButtons = document.querySelectorAll('.selectionButton');
             }
         });
     });
-
-const newGameButton = document.querySelector('#new-game');
-newGameButton.addEventListener('click', () => {
-    game.humanScore = 0;
-    game.computerScore =0;
-    setPointsWhite();
-    humanChoiceImage.innerHTML = '';
-    computerChoiceImage.innerHTML = '';
-});
-
-const paperImage = new Image();
-paperImage.src = 'images/paper.png';
-const rockImage = new Image();
-rockImage.src = 'images/rock.png';
-const scissorsImage = new Image();
-scissorsImage.src = 'images/scissors.png';
-
-// Adding same image aparently dosn't work,
-// so i'm adding same img but with different variable
-
-const paperImageBot = new Image();
-paperImageBot.src = 'images/paper.png';
-const rockImageBot = new Image();
-rockImageBot.src = 'images/rock.png';
-const scissorsImageBot = new Image();
-scissorsImageBot.src = 'images/scissors.png';
-
-const humanChoiceImage = document.querySelector('.selected-item-human');
-const computerChoiceImage = document.querySelector('.selected-item-computer');
-
-function computerPlay() {
-    let value = Math.floor(Math.random() * 3);
-
-    if (value == 0) {
-        computerChoiceImage.innerHTML = '';
-        computerChoiceImage.appendChild(rockImageBot);
-        return "rock";
-    } else 
-    if (value == 1) {
-        computerChoiceImage.innerHTML = '';
-        computerChoiceImage.appendChild(scissorsImageBot);
-        return "scissors";
-    } else {
-        computerChoiceImage.innerHTML = '';
-        computerChoiceImage.appendChild(paperImageBot);
-        return "paper";
-    }
-}
